@@ -1,0 +1,14 @@
+{
+  "id": "umollu_ash",
+  "name": "ASH - Another Simple HUD",
+  "description": "ASH - Another Simple HUD with FPS count and coordinates.",
+  "version": "${version}",
+  "side": "client",
+  "initializers": [],
+  "requires": {
+    "fabric": "*"
+  },
+  "mixins": {
+    "client": "umollu_ash.client.json"
+  }
+}

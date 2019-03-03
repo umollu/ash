@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.umollu.ash.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "GameRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
