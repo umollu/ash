@@ -3,8 +3,10 @@
   "name": "ASH - Another Simple HUD",
   "description": "ASH - Another Simple HUD with FPS count and coordinates.",
   "version": "${version}",
-  "side": "client",
-  "initializers": [],
+  "side": "universal",
+  "initializers": [
+    "com.umollu.ash.AshMod"
+  ],
   "requires": {
     "fabric": "*"
   },

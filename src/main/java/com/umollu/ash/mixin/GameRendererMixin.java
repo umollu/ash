@@ -1,5 +1,6 @@
 package com.umollu.ash.mixin;
 
+import com.umollu.ash.AshMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +19,7 @@ public class GameRendererMixin {
 	public void render(float float_1, long long_1, boolean boolean_1, CallbackInfo info) {
 
 		MinecraftClient client = MinecraftClient.getInstance();
-		if(!client.options.debugEnabled) {
+		if(!client.options.debugEnabled && AshMod.showHUD) {
 			BlockPos blockPos = new BlockPos(client.getCameraEntity().x, client.getCameraEntity().getBoundingBox().minY, client.getCameraEntity().z);
 			double scaleFactor = client.window.getScaleFactor();
 			GlStateManager.pushMatrix();
