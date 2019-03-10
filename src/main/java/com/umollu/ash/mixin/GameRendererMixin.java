@@ -19,12 +19,12 @@ public class GameRendererMixin {
 	public void render(float float_1, long long_1, boolean boolean_1, CallbackInfo info) {
 
 		MinecraftClient client = MinecraftClient.getInstance();
-		if(!client.options.debugEnabled && AshMod.showHUD) {
+		if(!client.options.debugEnabled && AshMod.config.showHud) {
 			BlockPos blockPos = new BlockPos(client.getCameraEntity().x, client.getCameraEntity().getBoundingBox().minY, client.getCameraEntity().z);
 			double scaleFactor = client.window.getScaleFactor();
 			GlStateManager.pushMatrix();
 			GlStateManager.scaled(1 * scaleFactor, 1 * scaleFactor, 1 * scaleFactor);
-			client.textRenderer.drawWithShadow(String.format("%d fps %d %d %d", MinecraftClient.getCurrentFps(), blockPos.getX(), blockPos.getY(), blockPos.getZ()), 5, 5, 0xeeeeee);
+			client.textRenderer.drawWithShadow(String.format("%d fps %d %d %d", MinecraftClient.getCurrentFps(), blockPos.getX(), blockPos.getY(), blockPos.getZ()), 5, 5, AshMod.config.hudColor);
 			GlStateManager.popMatrix();
 		}
 	}
