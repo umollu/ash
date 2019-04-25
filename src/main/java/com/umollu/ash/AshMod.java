@@ -5,7 +5,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.server.command.ServerCommandManager;
+import net.minecraft.server.command.CommandManager;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -53,7 +53,7 @@ public class AshMod implements ModInitializer {
 
 
         CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
-                ServerCommandManager.literal("toggleash")
+                CommandManager.literal("toggleash")
                         .executes(context -> {
                             config.showHud = !config.showHud;
                             config.saveConfig();
@@ -62,10 +62,37 @@ public class AshMod implements ModInitializer {
         ));
 
         CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
-                ServerCommandManager.literal("ashcolor")
-                        .then(ServerCommandManager.argument("r", IntegerArgumentType.integer())
-                                .then(ServerCommandManager.argument("g", IntegerArgumentType.integer())
-                                        .then(ServerCommandManager.argument("b", IntegerArgumentType.integer())
+                CommandManager.literal("togglefps")
+                        .executes(context -> {
+                            config.showFps = !config.showFps;
+                            config.saveConfig();
+                            return 1;
+                        })
+        ));
+
+        CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
+                CommandManager.literal("togglecoords")
+                        .executes(context -> {
+                            config.showCoords = !config.showCoords;
+                            config.saveConfig();
+                            return 1;
+                        })
+        ));
+
+        CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
+                CommandManager.literal("toggledirection")
+                        .executes(context -> {
+                            config.showDirection = !config.showDirection;
+                            config.saveConfig();
+                            return 1;
+                        })
+        ));
+
+        CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
+                CommandManager.literal("ashcolor")
+                        .then(CommandManager.argument("r", IntegerArgumentType.integer())
+                                .then(CommandManager.argument("g", IntegerArgumentType.integer())
+                                        .then(CommandManager.argument("b", IntegerArgumentType.integer())
                                             .executes(context -> {
                                                 int r = IntegerArgumentType.getInteger(context,"r");
                                                 int g = IntegerArgumentType.getInteger(context,"g");
@@ -75,6 +102,37 @@ public class AshMod implements ModInitializer {
                                                 config.saveConfig();
                                                 return 1;
                                 }))))
+        ));
+
+        CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
+                CommandManager.literal("resetash")
+                        .executes(context -> {
+                            config = new AshConfig();
+                            config.saveConfig();
+                            return 1;
+                        })
+        ));
+
+        CommandRegistry.INSTANCE.register(false, serverCommandSourceCommandDispatcher -> serverCommandSourceCommandDispatcher.register(
+                CommandManager.literal("alignash")
+                        .then(CommandManager.literal("left")
+                        .executes(context -> {
+                            config.align = 0;
+                            config.saveConfig();
+                            return 1;
+                        }))
+                        .then(CommandManager.literal("center")
+                        .executes(context -> {
+                            config.align = 1;
+                            config.saveConfig();
+                            return 1;
+                        }))
+                        .then(CommandManager.literal("right")
+                        .executes(context -> {
+                            config.align = 2;
+                            config.saveConfig();
+                            return 1;
+                        }))
         ));
     }
 }

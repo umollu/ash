@@ -13,6 +13,14 @@ public class AshConfig {
 
     public int hudColor = 0xeeeeee;
 
+    public boolean showFps = true;
+
+    public boolean showCoords = true;
+
+    public boolean showDirection = true;
+
+    public int align = 0;
+
     public void saveConfig() {
         String configPath = FabricLoader.getInstance().getConfigDirectory() + "/" + AshMod.MOD_ID + ".json";
         File configFile = new File(configPath);
