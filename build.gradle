@@ -30,7 +30,7 @@ dependencies {
 	modCompile "net.fabricmc:fabric:${project.fabric_version}"
 
     // Used for commands
-	modCompile "io.github.cottonmc:client-commands:${clientcommands_version}"
+    modCompile "io.github.cottonmc:client-commands:${clientcommands_version}"
     include "io.github.cottonmc:client-commands:${clientcommands_version}"
 
 	implementation 'com.google.code.gson:gson:2.8.5'
