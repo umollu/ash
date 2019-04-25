@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import io.github.cottonmc.clientcommands.ArgumentBuilders;
 import io.github.cottonmc.clientcommands.ClientCommands;
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
@@ -12,13 +12,13 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class AshMod implements ModInitializer {
+public class AshMod implements ClientModInitializer {
 
     public static final String MOD_ID = "umollu_ash";
     public static AshConfig config;
 
     @Override
-    public void onInitialize() {
+    public void onInitializeClient() {
         String configPath = FabricLoader.getInstance().getConfigDirectory() + "/" + MOD_ID + ".json";
 
         Gson gson = new Gson();

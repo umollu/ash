@@ -1,16 +1,19 @@
 {
+  "schemaVersion": 1,
   "id": "umollu_ash",
   "name": "ASH - Another Simple HUD",
   "description": "ASH - Another Simple HUD with FPS count and coordinates.",
   "version": "${version}",
-  "side": "universal",
-  "initializers": [
-    "com.umollu.ash.AshMod"
-  ],
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.umollu.ash.AshMod"
+    ]
+  },
   "requires": {
     "fabric": "*"
   },
-  "mixins": {
-    "client": "umollu_ash.client.json"
-  }
+  "mixins": [
+    "umollu_ash.mixins.json"
+  ]
 }

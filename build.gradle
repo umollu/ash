@@ -28,13 +28,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modCompile "net.fabricmc:fabric:${project.fabric_version}"
-	
-	modCompile("io.github.cottonmc:client-commands:${clientcommands_version}") {
-		transitive = false
-	}
-    include("io.github.cottonmc:client-commands:${clientcommands_version}") {
-		transitive = false
-	}
+
+    // Used for commands
+	modCompile "io.github.cottonmc:client-commands:${clientcommands_version}"
+    include "io.github.cottonmc:client-commands:${clientcommands_version}"
 
 	implementation 'com.google.code.gson:gson:2.8.5'
 }
