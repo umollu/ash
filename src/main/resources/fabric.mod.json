@@ -8,7 +8,10 @@
   "entrypoints": {
     "client": [
       "com.umollu.ash.AshMod"
-    ]
+    ],
+		"cotton-client-commands": [
+			"com.umollu.ash.AshCommands"
+		]
   },
   "requires": {
     "fabric": "*"
