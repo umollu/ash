@@ -8,10 +8,12 @@
   "entrypoints": {
     "client": [
       "com.umollu.ash.AshMod"
-    ]
+    ],
+    "cotton-client-commands": ["com.umollu.ash.AshCommands"]
   },
-  "requires": {
-    "fabric": "*"
+  "depends": {
+    "fabric": "*",
+    "cotton-client-commands": "^1.0.0"
   },
   "mixins": [
     "umollu_ash.mixins.json"
