@@ -62,6 +62,13 @@ public class AshCommands implements ClientCommandPlugin {
                 return 1;
             }));
 
+        commandDispatcher.register(ArgumentBuilders.literal("togglefps")
+            .executes(context -> {
+                config.showFps = !config.showFps;
+                config.saveConfig();
+                return 1;
+            }));
+
         commandDispatcher.register(ArgumentBuilders.literal("togglecoords")
             .executes(context -> {
                 config.showCoords = !config.showCoords;
