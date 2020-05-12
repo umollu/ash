@@ -32,7 +32,10 @@ dependencies {
 	modImplementation "io.github.cottonmc:cotton-client-commands:1.0.0+1.15.2"
 	include "io.github.cottonmc:cotton-client-commands:1.0.0+1.15.2"
 
-	implementation 'com.google.code.gson:gson:2.8.6'
+	//implementation 'com.google.code.gson:gson:2.8.6'
+
+	modApi 'me.sargunvohra.mcmods:autoconfig1u:2.1.0'
+	include 'me.sargunvohra.mcmods:autoconfig1u:2.1.0'
 }
 
 processResources {
