@@ -2,6 +2,7 @@ package com.umollu.ash.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.umollu.ash.AshCommands;
+import com.umollu.ash.config.AshConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.Entity;

@@ -9,6 +9,9 @@
     "client": [
       "com.umollu.ash.AshMod"
     ],
+    "modmenu": [
+      "com.umollu.ash.config.AshMenuIntegration"
+    ],
     "cotton-client-commands": ["com.umollu.ash.AshCommands"]
   },
   "depends": {

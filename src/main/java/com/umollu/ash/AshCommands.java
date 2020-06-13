@@ -7,46 +7,42 @@ import io.github.cottonmc.clientcommands.ArgumentBuilders;
 import io.github.cottonmc.clientcommands.ClientCommandPlugin;
 import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigManager;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
 
 public class AshCommands implements ClientCommandPlugin {
 
     public static AshConfig config;
-    private ConfigManager configManager;
 
     @Override
         public void registerCommands(CommandDispatcher<CottonClientCommandSource> commandDispatcher) {
 
         if(config == null) {
-            configManager = (ConfigManager)AutoConfig.register(AshConfig.class, GsonConfigSerializer::new);
             config = AutoConfig.getConfigHolder(AshConfig.class).getConfig();
         }
         commandDispatcher.register(ArgumentBuilders.literal("toggleash")
             .executes(context -> {
                 config.showHud = !config.showHud;
-                configManager.save();
+                AshMod.configManager.save();
                 return 1;
             }));
 
         commandDispatcher.register(ArgumentBuilders.literal("togglefps")
             .executes(context -> {
                 config.showFps = !config.showFps;
-                configManager.save();
+                AshMod.configManager.save();
                 return 1;
             }));
 
         commandDispatcher.register(ArgumentBuilders.literal("togglecoords")
             .executes(context -> {
                 config.showCoords = !config.showCoords;
-                configManager.save();
+                AshMod.configManager.save();
                 return 1;
             }));
 
         commandDispatcher.register(ArgumentBuilders.literal("toggledirection")
             .executes(context -> {
                 config.showDirection = !config.showDirection;
-                configManager.save();
+                AshMod.configManager.save();
                 return 1;
             }));
 
@@ -60,14 +56,14 @@ public class AshCommands implements ClientCommandPlugin {
                                         int b = IntegerArgumentType.getInteger(context,"b");
 
                                         config.hudColor = b + (g << 8) + (r << 16);
-                                        configManager.save();
+                                        AshMod.configManager.save();
                                         return 1;
                                     })))));
 
         commandDispatcher.register(ArgumentBuilders.literal("resetash")
             .executes(context -> {
                 config = new AshConfig();
-                configManager.save();
+                AshMod.configManager.save();
                 return 1;
             }));
 
@@ -75,19 +71,19 @@ public class AshCommands implements ClientCommandPlugin {
             .then(ArgumentBuilders.literal("left")
                     .executes(context -> {
                         config.align = 0;
-                        configManager.save();
+                        AshMod.configManager.save();
                         return 1;
                     }))
             .then(ArgumentBuilders.literal("center")
                     .executes(context -> {
                         config.align = 1;
-                        configManager.save();
+                        AshMod.configManager.save();
                         return 1;
                     }))
             .then(ArgumentBuilders.literal("right")
                     .executes(context -> {
                         config.align = 2;
-                        configManager.save();
+                        AshMod.configManager.save();
                         return 1;
                     })));
     }
