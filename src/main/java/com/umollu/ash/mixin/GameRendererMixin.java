@@ -30,7 +30,7 @@ public class GameRendererMixin {
 			if(AshCommands.config.showFps) {
 				ashString += String.format("%d fps ", ((MinecraftClientMixin) MinecraftClient.getInstance()).getCurrentFps());
 			}
-			if(AshCommands.config.showCoords) {
+			if(AshCommands.config.showCoords && !client.hasReducedDebugInfo()) {
 				BlockPos blockPos = new BlockPos(cameraEntity.getX(), cameraEntity.getBoundingBox().getMin(Direction.Axis.Y), cameraEntity.getZ());
 				ashString += String.format("%d %d %d ", blockPos.getX(), blockPos.getY(), blockPos.getZ());
 			}
