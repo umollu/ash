@@ -1,9 +1,19 @@
 {
   "schemaVersion": 1,
   "id": "umollu_ash",
+  "version": "${version}",
   "name": "ASH - Another Simple HUD",
   "description": "ASH - Another Simple HUD with FPS count and coordinates.",
-  "version": "${version}",
+  "authors": [
+    "umollu"
+  ],
+  "contact": {
+    "homepage": "https://umollu.com/",
+    "sources": "https://github.com/umollu/ash",
+    "issues": "https://github.com/umollu/ash/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/umollu_ash/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -14,11 +24,11 @@
     ],
     "cotton-client-commands": ["com.umollu.ash.AshCommands"]
   },
+  "mixins": [
+    "umollu_ash.mixins.json"
+  ],
   "depends": {
     "fabric": "*",
     "cotton-client-commands": "^1.0.0"
-  },
-  "mixins": [
-    "umollu_ash.mixins.json"
-  ]
+  }
 }
