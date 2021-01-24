@@ -1,6 +1,5 @@
 package com.umollu.ash.mixin;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.umollu.ash.AshCommands;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -22,7 +21,7 @@ public class InGameHudMixin {
         Entity cameraEntity = client.getCameraEntity();
 
         if(!client.options.debugEnabled && AshCommands.config.showHud) {
-            RenderSystem.pushMatrix();
+            matrixStack.push();
             String ashString = "";
             if(AshCommands.config.showFps) {
                 ashString += String.format("%d fps ", ((MinecraftClientMixin) MinecraftClient.getInstance()).getCurrentFps());
@@ -45,8 +44,17 @@ public class InGameHudMixin {
                 textPosX = client.getWindow().getScaledWidth() - client.textRenderer.getWidth(ashString) - textPosX;
             }
 
-            client.textRenderer.drawWithShadow(matrixStack, ashString, textPosX, 5, AshCommands.config.hudColor);
-            RenderSystem.popMatrix();
+            float textPosY = 5;
+
+            if (AshCommands.config.verticalAlign == 1) {
+                textPosY = (client.getWindow().getScaledHeight() - client.textRenderer.fontHeight) / 2f - textPosY;
+            }
+            if (AshCommands.config.verticalAlign == 2) {
+                textPosY = client.getWindow().getScaledHeight() - client.textRenderer.fontHeight - textPosY;
+            }
+
+            client.textRenderer.drawWithShadow(matrixStack, ashString, textPosX, textPosY, AshCommands.config.hudColor);
+            matrixStack.pop();
         }
     }
 }

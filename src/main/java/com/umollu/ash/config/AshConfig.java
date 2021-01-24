@@ -19,4 +19,6 @@ public class AshConfig implements ConfigData {
     public boolean showDirection = true;
 
     public int align = 0;
+
+    public int verticalAlign = 0;
 }

@@ -28,7 +28,9 @@
     "umollu_ash.mixins.json"
   ],
   "depends": {
+    "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "cotton-client-commands": "^1.0.0"
+    "cotton-client-commands": "^1.0.0",
+    "minecraft": "1.16.x"
   }
 }

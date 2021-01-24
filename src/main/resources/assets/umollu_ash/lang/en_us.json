@@ -5,5 +5,7 @@
   "text.autoconfig.umollu_ash.option.showFps" : "Show FPS",
   "text.autoconfig.umollu_ash.option.showCoords" : "Show coordinates",
   "text.autoconfig.umollu_ash.option.showDirection" : "Show direction",
-  "text.autoconfig.umollu_ash.option.align" : "HUD screen alignment"
+  "text.autoconfig.umollu_ash.option.align" : "HUD screen horizontal alignment",
+  "text.autoconfig.umollu_ash.option.verticalAlign" : "HUD screen vertical alignment",
+  "key.umollu_ash.toggleAsh" : "Toggle ASH HUD"
 }

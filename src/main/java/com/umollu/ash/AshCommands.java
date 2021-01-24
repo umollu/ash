@@ -9,7 +9,6 @@ import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 
 public class AshCommands implements ClientCommandPlugin {
-
     public static AshConfig config;
 
     @Override
@@ -83,6 +82,26 @@ public class AshCommands implements ClientCommandPlugin {
             .then(ArgumentBuilders.literal("right")
                     .executes(context -> {
                         config.align = 2;
+                        AshMod.configManager.save();
+                        return 1;
+                    })));
+
+        commandDispatcher.register(ArgumentBuilders.literal("valignash")
+            .then(ArgumentBuilders.literal("top")
+                    .executes(context -> {
+                        config.verticalAlign = 0;
+                        AshMod.configManager.save();
+                        return 1;
+                    }))
+            .then(ArgumentBuilders.literal("middle")
+                    .executes(context -> {
+                        config.verticalAlign = 1;
+                        AshMod.configManager.save();
+                        return 1;
+                    }))
+            .then(ArgumentBuilders.literal("bottom")
+                    .executes(context -> {
+                        config.verticalAlign = 2;
                         AshMod.configManager.save();
                         return 1;
                     })));
