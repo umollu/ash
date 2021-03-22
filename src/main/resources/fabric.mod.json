@@ -28,6 +28,6 @@
     "umollu_ash.mixins.json"
   ],
   "depends": {
-    "fabric": "*"
+    "fabric": ">=0.31.0"
   }
 }

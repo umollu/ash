@@ -46,6 +46,8 @@ public class AshMod implements ClientModInitializer {
         }, (field) -> {
             return field.getName().equals("align");
         });
+        
+        AshCommands.registerCommands();
     }
 
     private String alignToString(int align) {
