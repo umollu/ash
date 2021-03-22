@@ -28,7 +28,6 @@
     "umollu_ash.mixins.json"
   ],
   "depends": {
-    "fabric": "*",
-    "cotton-client-commands": "^1.0.0"
+    "fabric": "*"
   }
 }
