@@ -28,6 +28,8 @@
     "umollu_ash.mixins.json"
   ],
   "depends": {
-    "fabric": ">=0.31.0"
+    "fabricloader": ">=0.7.4",
+    "fabric": ">=0.31.0",
+    "minecraft": "1.16.x"
   }
 }

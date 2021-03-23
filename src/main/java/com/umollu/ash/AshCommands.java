@@ -87,5 +87,25 @@ public class AshCommands {
                         AshMod.configManager.save();
                         return 1;
                     })));
+
+        commandDispatcher.register(ClientCommandManager.literal("valignash")
+            .then(ClientCommandManager.literal("top")
+                    .executes(context -> {
+                        config.verticalAlign = 0;
+                        AshMod.configManager.save();
+                        return 1;
+                    }))
+            .then(ClientCommandManager.literal("middle")
+                    .executes(context -> {
+                        config.verticalAlign = 1;
+                        AshMod.configManager.save();
+                        return 1;
+                    }))
+            .then(ClientCommandManager.literal("bottom")
+                    .executes(context -> {
+                        config.verticalAlign = 2;
+                        AshMod.configManager.save();
+                        return 1;
+                    })));
     }
 }

@@ -19,7 +19,7 @@ repositories {
         url "https://server.bbkr.space/artifactory/libs-release"
     }
 	maven {
-		url "https://maven.fabricmc.net/io/github/prospector/modmenu/"
+		url "http://maven.terraformersmc.com"
 	}
 }
 
@@ -39,7 +39,7 @@ dependencies {
 		exclude module: 'fabric-api'
 	}
 
-	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
+	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
@@ -79,7 +79,7 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			// add all the jars that should be included when publishing to maven
-			artifact(jar) {
+			artifact(remapJar) {
 				builtBy remapJar
 			}
 			artifact(sourcesJar) {
