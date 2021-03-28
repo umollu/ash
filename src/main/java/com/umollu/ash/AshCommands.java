@@ -15,7 +15,6 @@ public class AshCommands {
 
         CommandDispatcher<FabricClientCommandSource> commandDispatcher = ClientCommandManager.DISPATCHER;
         
-        
         if(config == null) {
             config = AutoConfig.getConfigHolder(AshConfig.class).getConfig();
         }
