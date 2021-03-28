@@ -82,6 +82,8 @@ public class AshMod implements ClientModInitializer {
         }, (field) -> {
             return field.getName().equals("verticalAlign");
         });
+      
+        AshCommands.registerCommands();
     }
 
     private String alignToString(int align) {
