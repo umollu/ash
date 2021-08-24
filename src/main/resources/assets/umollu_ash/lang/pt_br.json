@@ -1,0 +1,11 @@
+{
+  "text.autoconfig.umollu_ash.title" : "Definições do ASH",
+  "text.autoconfig.umollu_ash.option.showHud" : "Exibir visor",
+  "text.autoconfig.umollu_ash.option.hudColor" : "Cor de texto do visor",
+  "text.autoconfig.umollu_ash.option.showFps" : "Exibir FPS",
+  "text.autoconfig.umollu_ash.option.showCoords" : "Exibir posição",
+  "text.autoconfig.umollu_ash.option.showDirection" : "Exibir direção",
+  "text.autoconfig.umollu_ash.option.align" : "Alinhamento horizontal do visor",
+  "text.autoconfig.umollu_ash.option.verticalAlign" : "Alinhamento vertical do visor",
+  "key.umollu_ash.toggleAsh" : "Mostrar/ocultar visor do ASH"
+}
