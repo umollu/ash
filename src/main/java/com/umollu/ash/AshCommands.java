@@ -3,7 +3,8 @@ package com.umollu.ash;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.umollu.ash.config.AshConfig;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+
+import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v1.FabricClientCommandSource;
 
