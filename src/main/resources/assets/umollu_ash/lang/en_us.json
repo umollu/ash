@@ -7,5 +7,12 @@
   "text.autoconfig.umollu_ash.option.showDirection" : "Show direction",
   "text.autoconfig.umollu_ash.option.align" : "HUD screen horizontal alignment",
   "text.autoconfig.umollu_ash.option.verticalAlign" : "HUD screen vertical alignment",
-  "key.umollu_ash.toggleAsh" : "Toggle ASH HUD"
+  "key.umollu_ash.toggleAsh" : "Toggle ASH HUD",
+  "command.ash.toggle.coords.true" : "Enabled coords on HUD",
+  "command.ash.toggle.coords.false" : "Disabled coords from HUD",
+  "command.ash.toggle.direction.true" : "Enabled direction display on HUD",
+  "command.ash.toggle.direction.false" : "Disabled direction display from HUD",
+  "command.ash.toggle.fps.true" : "Enabled FPS counter on HUD",
+  "command.ash.toggle.fps.false" : "Disabled FPS counter from HUD",
+  "command.ash.reset" : "Reset ASH HUD's settings to defaults"
 }
