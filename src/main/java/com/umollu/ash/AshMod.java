@@ -10,11 +10,13 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 
 import java.util.Collections;
+import java.util.List;
 
 public class AshMod implements ClientModInitializer {
 
@@ -44,7 +46,7 @@ public class AshMod implements ClientModInitializer {
             ints[1] = "Center";
             ints[2] = "Right";
 
-            return Collections.singletonList(ENTRY_BUILDER.startSelector(new TranslatableText(i13n), ints, alignToString((Integer) Utils.getUnsafely(field, config, (Object)null))).setDefaultValue(() -> {
+            return Collections.singletonList(ENTRY_BUILDER.startSelector(Text.translatable(i13n), ints, alignToString((Integer) Utils.getUnsafely(field, config, (Object)null))).setDefaultValue(() -> {
                 return alignToString(Utils.getUnsafely(field, defaults));
             }).setSaveConsumer((newValue) -> {
                 int intValue = 0;
@@ -68,7 +70,7 @@ public class AshMod implements ClientModInitializer {
             ints[1] = "Middle";
             ints[2] = "Bottom";
 
-            return Collections.singletonList(ENTRY_BUILDER.startSelector(new TranslatableText(i13n), ints, verticalAlignToString((Integer) Utils.getUnsafely(field, config, (Object)null))).setDefaultValue(() -> {
+            return Collections.singletonList(ENTRY_BUILDER.startSelector(Text.translatable(i13n), ints, verticalAlignToString((Integer) Utils.getUnsafely(field, config, (Object)null))).setDefaultValue(() -> {
                 return verticalAlignToString(Utils.getUnsafely(field, defaults));
             }).setSaveConsumer((newValue) -> {
                 int intValue = 0;
@@ -82,8 +84,11 @@ public class AshMod implements ClientModInitializer {
         }, (field) -> {
             return field.getName().equals("verticalAlign");
         });
-      
-        AshCommands.registerCommands();
+
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+            AshCommands.registerCommands();
+        });
+
     }
 
     private String alignToString(int align) {
