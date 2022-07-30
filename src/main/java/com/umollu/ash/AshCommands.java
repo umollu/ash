@@ -5,8 +5,9 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.umollu.ash.config.AshConfig;
 
 import me.shedaniel.autoconfig.AutoConfig;
-import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
-import net.fabricmc.fabric.api.client.command.v1.FabricClientCommandSource;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.minecraft.client.MinecraftClient;
 
 public class AshCommands {
 
@@ -14,11 +15,17 @@ public class AshCommands {
 
         public static void registerCommands() {
 
-        CommandDispatcher<FabricClientCommandSource> commandDispatcher = ClientCommandManager.DISPATCHER;
-        
+            CommandDispatcher<FabricClientCommandSource> commandDispatcher = ClientCommandManager.getActiveDispatcher();
+
         if(config == null) {
             config = AutoConfig.getConfigHolder(AshConfig.class).getConfig();
         }
+
+        if (commandDispatcher == null) {
+            System.out.println("Command Dispatcher is null");
+            return;
+        }
+
         commandDispatcher.register(ClientCommandManager.literal("toggleash")
             .executes(context -> {
                 config.showHud = !config.showHud;
