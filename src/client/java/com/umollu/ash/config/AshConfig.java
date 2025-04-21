@@ -1,11 +1,11 @@
 package com.umollu.ash.config;
 
-import com.umollu.ash.AshMod;
+import com.umollu.ash.ASHClient;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
-@Config(name = AshMod.MOD_ID)
+@Config(name = ASHClient.MOD_ID)
 public class AshConfig implements ConfigData {
     public boolean showHud = true;
 
