@@ -1,8 +1,10 @@
 {
 	"required": true,
-	"package": "com.umollu.ash.mixin",
+	"package": "com.umollu.ash.mixin.client",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [
+	"client": [
+		"InGameHudMixin",
+		"MinecraftClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
